@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kingsley's Investments</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'sans-serif';
+        }
+
+        body {
+            min-width: 100vw;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 5px;
+            box-shadow: 0 10px 10px darkgrey;
+            border: none;
+            border-radius: 1rem;
+            margin-bottom: 10px;
+            background-color: #FFFFFF;
+        }
+
+        .side-bar {
+            flex-shrink: 0.2;
+            position: relative;
+            width: 100px;
+            color: white;
+            background-color: blue;
+            transition: all .5s ease;
+            padding-left: 3px;
+        }
+
+        .side-bar:hover {
+            width: 250px;
+        }
+        main,.main-container{
+            width: 100%;
+            height: 100%;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        main {
+            display: flex;
+            padding: 20px;
+            background-color: whitesmoke;
+            overflow: auto;
+        }
+        main h2{
+            text-align: center;
+        }
+        nav {
+            margin-top: 10px;
+            margin-right: 10px;
+        }
+
+        ul li {
+            margin-bottom: 20px;
+            list-style-type: none;
+            border: 1px solid gray;
+            border-radius: 10px;
+            background-color: black;
+            padding: 5px;
+            overflow: hidden;
+            transition: all .3s ease;
+        }
+
+        .side-bar label {
+            display: flex;
+            width: 100%;
+            background-color: dimgray;
+            padding: 5px;
+            margin-bottom: 10px;
+            transition: all .3s ease;
+        }
+
+        .side-bar label:hover,
+        ul li:hover {
+            background-color: #10B981;
+            transform: translateY(5px);
+        }
+
+        .box {
+            transition: all .3s ease;
+            transform: scale(0.8);
+            position: relative;
+            background-color: forestgreen;
+            border: 2px solid rgb(20, 20, 20);
+            padding: 5px;
+            border-radius: 15px;
+            height: 200px;
+            width: 200px;
+            z-index: 2;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 10px 10px 10px darkgrey;
+
+        }
+        @media (max-width:500px) {
+            .container{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 15px;
+            }
+            .box{
+                height: 100px;
+                width: 100px;
+            }
+            .side-bar:hover{
+                width: 150px;
+            }
+            
+        }
+
+        .box:hover {
+            transform: scale(1);
+        }
+
+        .box::before {
+            opacity: 0;
+            z-index: -1;
+            inset: -5px;
+            content: "";
+            position: absolute;
+            border-radius: 10px;
+            border: none;
+            background: conic-gradient(red, green, blue, yellow);
+        }
+        .box::after{
+            content: "";
+            position: absolute;
+            z-index: -1;
+            inset: 0;
+            background-color: forestgreen;
+            border-radius: 10px;
+        }
+
+        .box:hover::before {
+         opacity: 1;   
+        }
+
+        h2 {
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function hideContainer(containerName) {
+            const container = document.querySelector("." + containerName)
+            container.style.display = "none"
+        }
+    </script>
+</head>
+
+<body>
+
+    <main>
+        <section class="side-bar">
+            <label>Dashboard</label>
+            <nav>
+                <ul>
+                    <li>New sales</li>
+                    <li>Draft Receipts</li>
+                    <li>Sales Receipts</li>
+                    <li>Available Products</li>
+                    <li>Messages</li>
+                    <h4>Help & Support</h4>
+                    <li>Report Damages</li>
+                    <li>Settings</li>
+                    <li>Help center</li>
+                    <li>Report Bugs</li>
+                </ul>
+            </nav>
+            <label>Return To Home</label>
+            <label>Logout</label>
+        </section>
+        <div class="main-container">
+            <div class="header">
+                <h4>Welcome Back Cashier</h4>
+                <label>Logged in as <i>A</i> </label>
+            </div>
+            <h2>Everything Cashier needs in one place</h2>
+            <section class="container">
+                    <div class="box">
+                        <h3>New sales</h3>
+                    </div>
+                    <div class="box">
+                        <h3>Draft Receipts</h3>
+                    </div>
+                    <div class="box">
+                        <h3>Sales Receipts</h3>
+                    </div>
+                    <div class="box">
+                        <h3>Available Products</h3>
+                    </div>
+                    <div class="box">
+                        <h3>Messages</h3>
+                    </div>
+                    <div class="box">
+                        <h3>Report Damages</h3>
+                    </div>
+                    <div class="box">
+                        <h3>Settings</h3>
+                    </div>
+                    <div class="box">
+                        <h3>Help center</h3>
+                    </div>
+            </section>
+        </div>
+    </main>
+
+</body>
+
+</html>
